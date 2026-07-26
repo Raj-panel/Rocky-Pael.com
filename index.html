@@ -2,22 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Raj Social Panel - Premium Boosting Services</title>
-
-    <!-- Social Media Open Graph Meta Tags (Instagram, Messenger, WhatsApp, Facebook Link Preview Banner) -->
-    <meta property="og:title" content="Raj Social Panel - Premium Social Boosting Services">
-    <meta property="og:description" content="Get instant Followers, Likes, Views for Instagram and Facebook at lowest prices!">
-    <meta property="og:image" content="banner.jpg">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Raj Social Panel">
-    <meta name="twitter:description" content="Instant Delivery & Premium Quality Social Media Services.">
-    <meta name="twitter:image" content="banner.jpg">
-
-    <!-- FontAwesome & Style -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Boost Panel</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -25,13 +11,13 @@
 
     <div class="main-wrapper">
         
-        <!-- Support Buttons Header (At the Very Top) -->
+        <!-- Support Buttons Header -->
         <div class="hero-actions">
-            <a href="https://wa.me/919337028344" target="_blank" class="glass-btn btn-whatsapp">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp Support
-            </a>
             <a href="https://t.me/RajSocialPanel" target="_blank" class="glass-btn btn-telegram">
                 <i class="fa-brands fa-telegram"></i> Telegram Support
+            </a>
+            <a href="https://wa.me/919337028344" target="_blank" class="glass-btn btn-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Support
             </a>
         </div>
 
@@ -104,7 +90,7 @@
                         <i class="fa-solid fa-qrcode"></i> UPI / QR Code
                     </button>
                     <button class="pay-tab" id="tabBinance" onclick="switchPaymentMethod('binance')">
-                        <i class="fa-solid fa-coins"></i> Crypto Payment
+                        <i class="fa-solid fa-coins"></i> Crypto (Binance USDT)
                     </button>
                 </div>
 
@@ -114,12 +100,17 @@
                     <p class="qr-sub">Scan QR using GPay, PhonePe, Paytm, or BHIM</p>
                 </div>
 
-                <!-- Binance Pay / USDT View (Only QR Image & Nick Name) -->
+                <!-- Binance Pay / USDT View -->
                 <div id="binancePaymentView" style="display: none;">
-                    <div class="qr-box">
-                        <img id="binanceQrImg" src="binance-qr.png" alt="Crypto QR Code">
+                    <div class="binance-info-card">
+                        <p class="info-row">Send USDT (TRC20 / BEP20)</p>
+                        <span class="usdt-badge" id="binanceUsdtDisplay">$0.00 USDT</span>
+                        
+                        <div class="crypto-details-box">
+                            <p><strong>Binance Pay ID:</strong> <span id="binancePayId">248392019</span> <button onclick="copyToClipboard('248392019')" class="copy-btn"><i class="fa-regular fa-copy"></i> Copy</button></p>
+                            <p><strong>USDT Address (TRC20):</strong> <span id="usdtAddress">TX98s...Kj82P</span> <button onclick="copyToClipboard('TX98s...Kj82P')" class="copy-btn"><i class="fa-regular fa-copy"></i> Copy</button></p>
+                        </div>
                     </div>
-                    <p class="qr-sub" style="margin-top: 8px;">Nick Name: <strong>Alex-Sahil786</strong></p>
                 </div>
 
                 <div class="input-box margin-top-15">
