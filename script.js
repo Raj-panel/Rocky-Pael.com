@@ -3,7 +3,7 @@ const serviceData = {
         "Followers Non-Drop": [
             { type: "custom", name: "Instagram Non-Drop Followers", pricePer1000: 80 }
         ],
-        "Followers Premium": [
+        "Followers": [
             { name: "1K Followers", price: 50, badge: "Starter" },
             { name: "2K Followers", price: 90 },
             { name: "3K Followers", price: 129, badge: "⭐ Popular", badgeClass: "badge-popular" },
@@ -23,6 +23,14 @@ const serviceData = {
             { name: "5K Likes", price: 99, badge: "🔥 Best Value", badgeClass: "badge-best" },
             { name: "10K Likes", price: 179, badge: "👑 Most Popular", badgeClass: "badge-best" }
         ],
+        "Reels / Video Views": [
+            { name: "1K Views", price: 10, badge: "Starter", badgeClass: "badge-demo" },
+            { name: "3K Views", price: 25 },
+            { name: "5K Views", price: 35, badge: "⭐ Popular", badgeClass: "badge-popular" },
+            { name: "10K Views", price: 60 },
+            { name: "50K Views", price: 249, badge: "🔥 Best Value", badgeClass: "badge-best" },
+            { name: "100K Views", price: 449, badge: "👑 Most Popular", badgeClass: "badge-best" }
+        ],
         "Comments Lifetime": [
             { name: "50 Comments", price: 15, badge: "Starter", badgeClass: "badge-demo" },
             { name: "100 Comments", price: 20, badge: "Real", badgeClass: "badge-real" },
@@ -41,25 +49,27 @@ const serviceData = {
             { name: "1K Shares", price: 30, badge: "Fast", badgeClass: "badge-popular" },
             { name: "5K Shares", price: 69, badge: "🔥 Best Value", badgeClass: "badge-best" },
             { name: "10K Shares", price: 99, badge: "👑 Most Popular", badgeClass: "badge-best" }
-        ],
-        "Views Lifetime": [
-            { name: "1K Views", price: 10, badge: "Demo", badgeClass: "badge-demo" },
-            { name: "5K Views", price: 20, badge: "Starter", badgeClass: "badge-real" },
-            { name: "10K Views", price: 30, badge: "Best Value", badgeClass: "badge-best" },
-            { name: "20K Views", price: 40, badge: "Popular", badgeClass: "badge-popular" },
-            { name: "50K Views", price: 70, badge: "Recommended", badgeClass: "badge-real" },
-            { name: "100K Views", price: 99, badge: "🔥 Best Seller", badgeClass: "badge-best" },
-            { name: "500K Views", price: 299, badge: "👑 Most Popular", badgeClass: "badge-popular" },
-            { name: "1M Views", price: 499, badge: "💥 Mega Deal", badgeClass: "badge-best" }
         ]
     },
     facebook: {
+        "Facebook Likes [Non-Drop]": [
+            { name: "100 Likes", price: 10, badge: "STARTER", badgeClass: "badge-demo" },
+            { name: "500 Likes", price: 25, badge: "REAL", badgeClass: "badge-real" },
+            { name: "1K Likes", price: 39, badge: "FAST", badgeClass: "badge-popular" },
+            { name: "3K Likes", price: 69, badge: "⭐ POPULAR", badgeClass: "badge-popular" },
+            { name: "5K Likes", price: 99, badge: "🔥 BEST VALUE", badgeClass: "badge-best" },
+            { name: "10K Likes", price: 179, badge: "👑 MOST POPULAR", badgeClass: "badge-best" }
+        ],
         "Facebook Followers": [
             { type: "custom", name: "Facebook Followers", pricePer1000: 49 }
         ],
         "Facebook Video Views": [
-            { name: "1K Facebook Views", price: 10, badge: "Demo", badgeClass: "badge-demo" },
-            { name: "5K Facebook Views", price: 45, badge: "Popular", badgeClass: "badge-popular" }
+            { name: "1K Views", price: 10, badge: "STARTER", badgeClass: "badge-demo" },
+            { name: "3K Views", price: 25 },
+            { name: "5K Views", price: 35, badge: "⭐ POPULAR", badgeClass: "badge-popular" },
+            { name: "10K Views", price: 60 },
+            { name: "50K Views", price: 249, badge: "🔥 BEST VALUE", badgeClass: "badge-best" },
+            { name: "100K Views", price: 449, badge: "👑 MOST POPULAR", badgeClass: "badge-best" }
         ]
     }
 };
@@ -94,7 +104,7 @@ function switchPlatform(platform) {
     } else {
         heroTitle.innerText = "Facebook Boost";
         heroLogoIcon.innerHTML = '<i class="fa-brands fa-facebook"></i>';
-        linkInputLabel.innerText = "Enter Facebook Profile / Video Link:";
+        linkInputLabel.innerText = "Enter Facebook Profile / Post Link:";
         linkInput.placeholder = "https://facebook.com/your_link";
     }
 
