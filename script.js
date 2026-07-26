@@ -1,44 +1,65 @@
 const serviceData = {
     instagram: {
-        "Followers": [
-            { type: "custom", name: "Instagram Followers", pricePer1000: 80 },
-            { name: "100 Followers", price: 20, badge: "Budget Friendly" },
-            { name: "200 Followers", price: 35, badge: "Budget Friendly" },
-            { name: "500 Followers", price: 80, badge: "Budget Friendly" },
-            { name: "1K Followers", price: 149, badge: "🚀 Popular", badgeClass: "badge-popular" },
-            { name: "3K Followers", price: 379, badge: "Budget Friendly" },
-            { name: "5K Followers", price: 640, badge: "⭐ Best Deal", badgeClass: "badge-best" },
-            { name: "10K Followers", price: 1049, badge: "👑 Most Popular", badgeClass: "badge-best" }
+        "Followers Non-Drop": [
+            { type: "custom", name: "Instagram Non-Drop Followers", pricePer1000: 80 }
         ],
-        "Likes": [
-            { name: "100 Likes", price: 15, badge: "Starter" },
-            { name: "500 Likes", price: 25, badge: "Real" },
-            { name: "1K Likes", price: 30, badge: "Fast" },
+        "Followers Premium": [
+            { name: "1K Followers", price: 50, badge: "Starter" },
+            { name: "2K Followers", price: 90 },
+            { name: "3K Followers", price: 129, badge: "⭐ Popular", badgeClass: "badge-popular" },
+            { name: "4K Followers", price: 165 },
+            { name: "5K Followers", price: 199, badge: "🔥 Best Value", badgeClass: "badge-best" },
+            { name: "6K Followers", price: 239 },
+            { name: "7K Followers", price: 279 },
+            { name: "8K Followers", price: 319 },
+            { name: "9K Followers", price: 359 },
+            { name: "10K Followers", price: 399, badge: "👑 Most Popular", badgeClass: "badge-best" }
+        ],
+        "Likes Lifetime": [
+            { name: "100 Likes", price: 15, badge: "Starter", badgeClass: "badge-demo" },
+            { name: "500 Likes", price: 25, badge: "Real", badgeClass: "badge-real" },
+            { name: "1K Likes", price: 30, badge: "Fast", badgeClass: "badge-popular" },
             { name: "2K Likes", price: 50, badge: "⭐ Popular", badgeClass: "badge-popular" },
-            { name: "5K Likes", price: 99, badge: "🔥 Best Value", badgeClass: "badge-best" }
+            { name: "5K Likes", price: 99, badge: "🔥 Best Value", badgeClass: "badge-best" },
+            { name: "10K Likes", price: 179, badge: "👑 Most Popular", badgeClass: "badge-best" }
         ],
-        "Views": [
-            { name: "1K Views", price: 10, badge: "Demo" },
-            { name: "5K Views", price: 20, badge: "Starter" },
+        "Comments Lifetime": [
+            { name: "50 Comments", price: 15, badge: "Starter", badgeClass: "badge-demo" },
+            { name: "100 Comments", price: 20, badge: "Real", badgeClass: "badge-real" },
+            { name: "500 Comments", price: 59, badge: "⭐ Popular", badgeClass: "badge-popular" },
+            { name: "1K Comments", price: 99, badge: "🔥 Best Value", badgeClass: "badge-best" }
+        ],
+        "Repost Lifetime": [
+            { name: "50 Reposts", price: 15, badge: "Starter", badgeClass: "badge-demo" },
+            { name: "100 Reposts", price: 20, badge: "Real", badgeClass: "badge-real" },
+            { name: "500 Reposts", price: 59, badge: "⭐ Popular", badgeClass: "badge-popular" },
+            { name: "1K Reposts", price: 99, badge: "🔥 Best Value", badgeClass: "badge-best" },
+            { name: "3K Reposts", price: 249, badge: "👑 Most Popular", badgeClass: "badge-best" }
+        ],
+        "Shares Lifetime": [
+            { name: "100 Shares", price: 10, badge: "Starter", badgeClass: "badge-demo" },
+            { name: "1K Shares", price: 30, badge: "Fast", badgeClass: "badge-popular" },
+            { name: "5K Shares", price: 69, badge: "🔥 Best Value", badgeClass: "badge-best" },
+            { name: "10K Shares", price: 99, badge: "👑 Most Popular", badgeClass: "badge-best" }
+        ],
+        "Views Lifetime": [
+            { name: "1K Views", price: 10, badge: "Demo", badgeClass: "badge-demo" },
+            { name: "5K Views", price: 20, badge: "Starter", badgeClass: "badge-real" },
             { name: "10K Views", price: 30, badge: "Best Value", badgeClass: "badge-best" },
-            { name: "50K Views", price: 70, badge: "Recommended" },
-            { name: "100K Views", price: 99, badge: "🔥 Best Seller", badgeClass: "badge-best" }
-        ],
-        "Comments": [
-            { name: "50 Comments", price: 15 },
-            { name: "100 Comments", price: 20 },
-            { name: "500 Comments", price: 59, badge: "⭐ Popular", badgeClass: "badge-popular" }
+            { name: "20K Views", price: 40, badge: "Popular", badgeClass: "badge-popular" },
+            { name: "50K Views", price: 70, badge: "Recommended", badgeClass: "badge-real" },
+            { name: "100K Views", price: 99, badge: "🔥 Best Seller", badgeClass: "badge-best" },
+            { name: "500K Views", price: 299, badge: "👑 Most Popular", badgeClass: "badge-popular" },
+            { name: "1M Views", price: 499, badge: "💥 Mega Deal", badgeClass: "badge-best" }
         ]
     },
     facebook: {
-        "Followers": [
-            { type: "custom", name: "Facebook Followers", pricePer1000: 49 },
-            { name: "500 Followers", price: 30 },
-            { name: "1K Followers", price: 49, badge: "Popular", badgeClass: "badge-popular" }
+        "Facebook Followers": [
+            { type: "custom", name: "Facebook Followers", pricePer1000: 49 }
         ],
-        "Video Views": [
-            { name: "1K Views", price: 10 },
-            { name: "5K Views", price: 45, badge: "Best Deal", badgeClass: "badge-best" }
+        "Facebook Video Views": [
+            { name: "1K Facebook Views", price: 10, badge: "Demo", badgeClass: "badge-demo" },
+            { name: "5K Facebook Views", price: 45, badge: "Popular", badgeClass: "badge-popular" }
         ]
     }
 };
@@ -48,7 +69,6 @@ let currentCategory = '';
 let selectedPackage = null;
 let currentPaymentMethod = 'upi';
 
-// Initialize Panel on Load
 window.onload = function() {
     switchPlatform('instagram');
 };
@@ -58,11 +78,9 @@ function switchPlatform(platform) {
     selectedPackage = null;
     document.getElementById("checkoutSection").style.display = "none";
 
-    // Update Platform Buttons
     document.getElementById("btnInsta").classList.toggle("active", platform === 'instagram');
     document.getElementById("btnFb").classList.toggle("active", platform === 'facebook');
 
-    // Update Hero Banner Details
     const heroTitle = document.getElementById("heroTitle");
     const heroLogoIcon = document.getElementById("heroLogoIcon");
     const linkInputLabel = document.getElementById("linkInputLabel");
@@ -71,16 +89,15 @@ function switchPlatform(platform) {
     if (platform === 'instagram') {
         heroTitle.innerText = "Instagram Boost";
         heroLogoIcon.innerHTML = '<i class="fa-brands fa-instagram"></i>';
-        linkInputLabel.innerText = "Enter Instagram Link / Username:";
+        linkInputLabel.innerText = "Enter Instagram Target Link / Username:";
         linkInput.placeholder = "https://instagram.com/your_username";
     } else {
         heroTitle.innerText = "Facebook Boost";
         heroLogoIcon.innerHTML = '<i class="fa-brands fa-facebook"></i>';
-        linkInputLabel.innerText = "Enter Facebook Profile / Page Link:";
-        linkInput.placeholder = "https://facebook.com/your_profile";
+        linkInputLabel.innerText = "Enter Facebook Profile / Video Link:";
+        linkInput.placeholder = "https://facebook.com/your_link";
     }
 
-    // Render Category Horizontal Tabs
     renderCategoryTabs();
 }
 
@@ -89,7 +106,7 @@ function renderCategoryTabs() {
     tabsContainer.innerHTML = "";
 
     const categories = Object.keys(serviceData[currentPlatform]);
-    currentCategory = categories[0]; // Select First Tab by Default
+    currentCategory = categories[0];
 
     categories.forEach((cat, index) => {
         const tabBtn = document.createElement("button");
@@ -144,7 +161,7 @@ function renderPackages() {
                             ${pkg.name}
                             ${pkg.badge ? `<span class="pkg-badge ${pkg.badgeClass || 'badge-popular'}">${pkg.badge}</span>` : ''}
                         </div>
-                        <span class="pkg-sub">Instant Delivery • Safe</span>
+                        <span class="pkg-sub">⚡ Instant Delivery • Premium Quality</span>
                     </div>
                 </div>
                 <div class="pkg-price-btn">₹${pkg.price}</div>
@@ -202,7 +219,7 @@ function generateOrder() {
     }
 
     if (!link) {
-        alert("Please enter profile/post link!");
+        alert("Please enter target link or username!");
         return;
     }
 
@@ -236,9 +253,14 @@ function switchPaymentMethod(method) {
         utrLabel.innerText = "Enter 12-Digit UPI UTR / Ref No:";
         utrInput.placeholder = "e.g. 4029XXXXXXXX (12-Digit UTR)";
     } else {
-        utrLabel.innerText = "Transaction ID / Order ID:";
-        utrInput.placeholder = "e.g. Enter Binance TxID";
+        utrLabel.innerText = "Transaction ID / TxID:";
+        utrInput.placeholder = "e.g. Enter Binance Order ID / TxID";
     }
+}
+
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text);
+    alert("Copied to clipboard: " + text);
 }
 
 function confirmPaymentWithUTR() {
@@ -246,7 +268,7 @@ function confirmPaymentWithUTR() {
     const link = document.getElementById("link").value.trim();
 
     if (!utr || utr.length < 6) {
-        alert("Please enter a valid UTR or Transaction ID!");
+        alert("Please enter a valid UTR or TxID!");
         return;
     }
 
@@ -261,7 +283,7 @@ function confirmPaymentWithUTR() {
                   `*Amount Paid:* ₹${price} INR ($${usdtAmount} USDT)%0A` +
                   `*Payment Mode:* ${currentPaymentMethod.toUpperCase()}%0A` +
                   `*Transaction UTR:* ${utr}%0A%0A` +
-                  `Please start my order!`;
+                  `Please start processing my order!`;
 
     window.open(`https://wa.me/919337028344?text=${waMsg}`, '_blank');
 }
