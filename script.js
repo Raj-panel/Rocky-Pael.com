@@ -52,9 +52,6 @@ const serviceData = {
         ]
     },
     facebook: {
-        "Facebook Followers": [
-            { type: "custom", name: "Facebook Followers", pricePer1000: 49 }
-             ],
         "Facebook Likes [Non-Drop]": [
             { name: "100 Likes", price: 10, badge: "STARTER", badgeClass: "badge-demo" },
             { name: "500 Likes", price: 25, badge: "REAL", badgeClass: "badge-real" },
@@ -63,7 +60,9 @@ const serviceData = {
             { name: "5K Likes", price: 99, badge: "🔥 BEST VALUE", badgeClass: "badge-best" },
             { name: "10K Likes", price: 179, badge: "👑 MOST POPULAR", badgeClass: "badge-best" }
         ],
-     ],
+        "Facebook Followers": [
+            { type: "custom", name: "Facebook Followers", pricePer1000: 49 }
+        ],
         "Facebook Video Views": [
             { name: "1K Views", price: 10, badge: "STARTER", badgeClass: "badge-demo" },
             { name: "3K Views", price: 25 },
