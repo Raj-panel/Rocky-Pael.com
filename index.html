@@ -1,567 +1,134 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="theme-color" content="#8b5cf6">
-    <meta name="description" content="Raj Social Panel - Fast and reliable social media services.">
-
-    <title>Raj Social Panel | Social Media Services</title>
-
-    <!-- Main CSS -->
+    <title>Social Boost Panel</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
 
-<div class="main-wrapper">
-
-    <!-- ============================= -->
-    <!-- SUPPORT HEADER -->
-    <!-- ============================= -->
-    <div class="hero-actions">
-
-        <a
-            href="https://t.me/RajSocialPanel"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="glass-btn btn-telegram"
-        >
-            <i class="fa-brands fa-telegram"></i>
-            <span>Telegram Support</span>
-        </a>
-
-        <a
-            href="https://wa.me/919337028344"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="glass-btn btn-whatsapp"
-        >
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>WhatsApp Support</span>
-        </a>
-
-    </div>
-
-
-    <!-- ============================= -->
-    <!-- BRAND HEADER -->
-    <!-- ============================= -->
-    <div class="brand-header">
-
-        <div class="brand-logo">
-            <i class="fa-solid fa-rocket"></i>
+    <div class="main-wrapper">
+        
+        <!-- Support Buttons Header -->
+        <div class="hero-actions">
+            <a href="https://t.me/RajSocialPanel" target="_blank" class="glass-btn btn-telegram">
+                <i class="fa-brands fa-telegram"></i> Telegram Support
+            </a>
+            <a href="https://wa.me/919337028344" target="_blank" class="glass-btn btn-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Support
+            </a>
         </div>
 
-        <div class="brand-info">
-            <h1>Raj Social Panel</h1>
-            <p>Premium Social Media Services</p>
-        </div>
-
-        <div class="online-status">
-            <span class="status-dot"></span>
-            Online
-        </div>
-
-    </div>
-
-
-    <!-- ============================= -->
-    <!-- PLATFORM SWITCHER -->
-    <!-- ============================= -->
-    <div class="platform-switch-container">
-
-        <button
-            class="platform-btn active"
-            id="btnInsta"
-            onclick="switchPlatform('instagram')"
-        >
-            <i class="fa-brands fa-instagram"></i>
-            Instagram
-        </button>
-
-        <button
-            class="platform-btn"
-            id="btnFb"
-            onclick="switchPlatform('facebook')"
-        >
-            <i class="fa-brands fa-facebook"></i>
-            Facebook
-        </button>
-
-    </div>
-
-
-    <!-- ============================= -->
-    <!-- HERO STATUS BANNER -->
-    <!-- ============================= -->
-    <div class="hero-banner">
-
-        <div class="hero-top-row">
-
-            <div class="hero-logo-box" id="heroLogoIcon">
-                <i class="fa-brands fa-instagram"></i>
-            </div>
-
-            <span class="provider-badge">
-                <i class="fa-solid fa-circle-check"></i>
-                Trusted Service
-            </span>
-
-        </div>
-
-
-        <h2 id="heroTitle">
-            Instagram Boost
-        </h2>
-
-        <p class="hero-sub">
-            Fast delivery • Quality service • 24/7 Support
-        </p>
-
-
-        <!-- HERO STATS -->
-        <div class="hero-stats-grid">
-
-            <div class="stat-card">
-
-                <span class="stat-icon">
-                    <i class="fa-solid fa-rocket"></i>
-                </span>
-
-                <span
-                    class="stat-num"
-                    id="totalOrders"
-                >
-                    2,99,784
-                </span>
-
-                <span class="stat-lbl">
-                    Orders Delivered
-                </span>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <span class="stat-icon">
-                    <i class="fa-solid fa-headset"></i>
-                </span>
-
-                <span class="stat-num">
-                    24/7
-                </span>
-
-                <span class="stat-lbl">
-                    Customer Support
-                </span>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <span class="stat-icon">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </span>
-
-                <span class="stat-num">
-                    100%
-                </span>
-
-                <span class="stat-lbl">
-                    Secure Service
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- ============================= -->
-    <!-- CATEGORY TABS -->
-    <!-- ============================= -->
-    <div class="section-title">
-
-        <h3>
-            <i class="fa-solid fa-layer-group"></i>
-            Select Service
-        </h3>
-
-        <span>
-            Choose a package below
-        </span>
-
-    </div>
-
-
-    <div class="category-tabs-wrapper">
-
-        <div
-            class="category-tabs"
-            id="categoryTabs"
-        ></div>
-
-    </div>
-
-
-    <!-- ============================= -->
-    <!-- PACKAGE LIST -->
-    <!-- ============================= -->
-    <div
-        class="package-list-container"
-        id="packageList"
-    ></div>
-
-
-    <!-- ============================= -->
-    <!-- CHECKOUT SECTION -->
-    <!-- ============================= -->
-    <div
-        class="checkout-card"
-        id="checkoutSection"
-        style="display: none;"
-    >
-
-        <div class="checkout-header">
-
-            <div class="checkout-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-
-            <div>
-                <h3>
-                    Complete Your Order
-                </h3>
-
-                <p>
-                    Enter your target details below
-                </p>
-            </div>
-
-        </div>
-
-
-        <!-- SELECTED PACKAGE -->
-        <div
-            class="order-summary-pill"
-            id="selectedSummary"
-        ></div>
-
-
-        <!-- TARGET LINK -->
-        <div class="input-box">
-
-            <label for="link" id="linkInputLabel">
-                Enter Target Link / Username
-            </label>
-
-            <input
-                type="text"
-                id="link"
-                autocomplete="off"
-                placeholder="https://instagram.com/your_username"
-            >
-
-        </div>
-
-
-        <!-- PAYMENT BUTTON -->
-        <button
-            class="action-btn"
-            onclick="generateOrder()"
-        >
-            <span>
-                Proceed to Payment
-            </span>
-
-            <i class="fa-solid fa-arrow-right"></i>
-
-        </button>
-
-
-        <!-- ============================= -->
-        <!-- PAYMENT CARD -->
-        <!-- ============================= -->
-        <div
-            class="payment-card"
-            id="paymentCard"
-            style="display: none;"
-        >
-
-            <div class="payment-title">
-
-                <i class="fa-solid fa-wallet"></i>
-
-                <div>
-                    <h3>
-                        Choose Payment Method
-                    </h3>
-
-                    <p>
-                        Complete payment to place your order
-                    </p>
-                </div>
-
-            </div>
-
-
-            <!-- PAYMENT METHOD TABS -->
-            <div class="pay-toggle-tabs">
-
-                <button
-                    class="pay-tab active"
-                    id="tabUpi"
-                    onclick="switchPaymentMethod('upi')"
-                >
-                    <i class="fa-solid fa-qrcode"></i>
-                    UPI / QR
-                </button>
-
-
-                <button
-                    class="pay-tab"
-                    id="tabBinance"
-                    onclick="switchPaymentMethod('binance')"
-                >
-                    <i class="fa-solid fa-coins"></i>
-                    Binance USDT
-                </button>
-
-            </div>
-
-
-            <!-- ============================= -->
-            <!-- UPI PAYMENT -->
-            <!-- ============================= -->
-            <div
-                id="upiPaymentView"
-                class="qr-box"
-            >
-
-                <div class="payment-method-label">
-                    <i class="fa-solid fa-mobile-screen-button"></i>
-                    Scan & Pay
-                </div>
-
-
-                <img
-                    id="qrCodeImg"
-                    src=""
-                    alt="UPI Payment QR Code"
-                >
-
-
-                <p class="qr-sub">
-                    Scan using GPay, PhonePe, Paytm or BHIM
-                </p>
-
-            </div>
-
-
-            <!-- ============================= -->
-            <!-- BINANCE PAYMENT -->
-            <!-- ============================= -->
-            <div
-                id="binancePaymentView"
-                style="display: none;"
-            >
-
-                <div class="binance-info-card">
-
-                    <div class="crypto-header">
-
-                        <div class="crypto-icon">
-                            <i class="fa-solid fa-coins"></i>
-                        </div>
-
-                        <div>
-                            <strong>
-                                Binance USDT Payment
-                            </strong>
-
-                            <p>
-                                Send payment using supported network
-                            </p>
-                        </div>
-
-                    </div>
-
-
-                    <p class="info-row">
-                        Send USDT via TRC20 / BEP20
-                    </p>
-
-
-                    <span
-                        class="usdt-badge"
-                        id="binanceUsdtDisplay"
-                    >
-                        $0.00 USDT
-                    </span>
-
-
-                    <!-- CRYPTO DETAILS -->
-                    <div class="crypto-details-box">
-
-                        <div class="crypto-row">
-
-                            <div>
-                                <strong>
-                                    Binance Pay ID
-                                </strong>
-
-                                <span id="binancePayId">
-                                    248392019
-                                </span>
-                            </div>
-
-                            <button
-                                onclick="copyToClipboard('248392019')"
-                                class="copy-btn"
-                                type="button"
-                            >
-                                <i class="fa-regular fa-copy"></i>
-                                Copy
-                            </button>
-
-                        </div>
-
-
-                        <div class="crypto-row">
-
-                            <div>
-                                <strong>
-                                    USDT Address (TRC20)
-                                </strong>
-
-                                <span
-                                    id="usdtAddress"
-                                >
-                                    TX98s...Kj82P
-                                </span>
-                            </div>
-
-                            <button
-                                onclick="copyToClipboard('TX98s...Kj82P')"
-                                class="copy-btn"
-                                type="button"
-                            >
-                                <i class="fa-regular fa-copy"></i>
-                                Copy
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- ============================= -->
-            <!-- TRANSACTION ID -->
-            <!-- ============================= -->
-            <div class="input-box margin-top-15">
-
-                <label for="utrNumber" id="utrLabel">
-                    Enter UPI UTR / Transaction Reference
-                </label>
-
-                <input
-                    type="text"
-                    id="utrNumber"
-                    autocomplete="off"
-                    placeholder="Enter your UTR / Transaction ID"
-                >
-
-            </div>
-
-
-            <!-- ============================= -->
-            <!-- WHATSAPP CONFIRMATION -->
-            <!-- ============================= -->
-            <button
-                class="whatsapp-submit-btn"
-                onclick="confirmPaymentWithUTR()"
-                type="button"
-            >
-
-                <i class="fa-brands fa-whatsapp"></i>
-
-                <span>
-                    Confirm Order on WhatsApp
-                </span>
-
+        <!-- Platform Switcher -->
+        <div class="platform-switch-container">
+            <button class="platform-btn active" id="btnInsta" onclick="switchPlatform('instagram')">
+                <i class="fa-brands fa-instagram"></i> Instagram
             </button>
+            <button class="platform-btn" id="btnFb" onclick="switchPlatform('facebook')">
+                <i class="fa-brands fa-facebook"></i> Facebook
+            </button>
+        </div>
 
+        <!-- Hero Status Banner -->
+        <div class="hero-banner">
+            <div class="hero-top-row">
+                <div class="hero-logo-box" id="heroLogoIcon">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <span class="provider-badge">#1 Service Provider</span>
+            </div>
+            <h2 id="heroTitle">Instagram Boost</h2>
+            <p class="hero-sub">Real engagement delivered fast & safely</p>
 
-            <!-- PAYMENT SECURITY NOTE -->
-            <div class="payment-note">
+            <div class="hero-stats-grid">
+                <div class="stat-card">
+                    <span class="stat-icon"><i class="fa-solid fa-rocket"></i></span>
+                    <span class="stat-num" id="totalOrders">2,99,784</span>
+                    <span class="stat-lbl">Orders Delivered</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon"><i class="fa-solid fa-headset"></i></span>
+                    <span class="stat-num">24/7</span>
+                    <span class="stat-lbl">Support</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon"><i class="fa-solid fa-shield-halved"></i></span>
+                    <span class="stat-num">100%</span>
+                    <span class="stat-lbl">Safe & Refundable</span>
+                </div>
+            </div>
+        </div>
 
-                <i class="fa-solid fa-lock"></i>
+        <!-- Scrollable Category Tabs -->
+        <div class="category-tabs-wrapper">
+            <div class="category-tabs" id="categoryTabs"></div>
+        </div>
 
-                <span>
-                    Your payment information is handled securely.
-                </span>
+        <!-- Package List Section -->
+        <div class="package-list-container" id="packageList"></div>
 
+        <!-- Link & Checkout Drawer -->
+        <div class="checkout-card" id="checkoutSection" style="display: none;">
+            <div class="checkout-header">
+                <h3><i class="fa-solid fa-cart-shopping"></i> Complete Your Order</h3>
+            </div>
+            <div class="order-summary-pill" id="selectedSummary"></div>
+
+            <div class="input-box">
+                <label id="linkInputLabel">Enter Target Link / Username:</label>
+                <input type="text" id="link" placeholder="https://instagram.com/your_username">
             </div>
 
+            <button class="action-btn" onclick="generateOrder()">Proceed to Payment <i class="fa-solid fa-arrow-right"></i></button>
+
+            <!-- Payment Gateway Details -->
+            <div class="payment-card" id="paymentCard" style="display: none;">
+                <div class="pay-toggle-tabs">
+                    <button class="pay-tab active" id="tabUpi" onclick="switchPaymentMethod('upi')">
+                        <i class="fa-solid fa-qrcode"></i> UPI / QR Code
+                    </button>
+                    <button class="pay-tab" id="tabBinance" onclick="switchPaymentMethod('binance')">
+                        <i class="fa-solid fa-coins"></i> Crypto (Binance USDT)
+                    </button>
+                </div>
+
+                <!-- UPI Payment -->
+                <div id="upiPaymentView" class="qr-box">
+                    <img id="qrCodeImg" src="" alt="Payment QR Code">
+                    <p class="qr-sub">Scan QR using GPay, PhonePe, Paytm, or BHIM</p>
+                </div>
+
+                <!-- Binance Pay / USDT View -->
+                <div id="binancePaymentView" style="display: none;">
+                    <div class="binance-info-card">
+                        <p class="info-row">Send USDT (TRC20 / BEP20)</p>
+                        <span class="usdt-badge" id="binanceUsdtDisplay">$0.00 USDT</span>
+                        
+                        <div class="crypto-details-box">
+                            <p><strong>Binance Pay ID:</strong> <span id="binancePayId">248392019</span> <button onclick="copyToClipboard('248392019')" class="copy-btn"><i class="fa-regular fa-copy"></i> Copy</button></p>
+                            <p><strong>USDT Address (TRC20):</strong> <span id="usdtAddress">TX98s...Kj82P</span> <button onclick="copyToClipboard('TX98s...Kj82P')" class="copy-btn"><i class="fa-regular fa-copy"></i> Copy</button></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-box margin-top-15">
+                    <label id="utrLabel">Enter 12-Digit UPI UTR / Ref No:</label>
+                    <input type="text" id="utrNumber" placeholder="e.g. 4029XXXXXXXX (12-Digit UTR)">
+                </div>
+
+                <button class="whatsapp-submit-btn" onclick="confirmPaymentWithUTR()">
+                    <i class="fa-brands fa-whatsapp"></i> Confirm Order on WhatsApp
+                </button>
+            </div>
         </div>
 
-    </div>
-
-
-    <!-- ============================= -->
-    <!-- TRUST FOOTER -->
-    <!-- ============================= -->
-    <div class="footer-note">
-
-        <div class="footer-icons">
-
-            <span>
-                <i class="fa-solid fa-bolt"></i>
-                Fast Processing
-            </span>
-
-            <span>
-                <i class="fa-solid fa-headset"></i>
-                24/7 Support
-            </span>
-
-            <span>
-                <i class="fa-solid fa-shield-halved"></i>
-                Secure Service
-            </span>
-
+        <div class="footer-note">
+            ⚡ Fast Processing • 100% Refund Guarantee If Failed
         </div>
-
-        <p>
-            Raj Social Panel • Premium Social Media Services
-        </p>
-
     </div>
 
-</div>
-
-
-<!-- ============================= -->
-<!-- MAIN JAVASCRIPT -->
-<!-- ============================= -->
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
-```
