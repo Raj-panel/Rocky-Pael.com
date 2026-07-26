@@ -10,7 +10,18 @@
 <body>
 
     <div class="main-wrapper">
-        <!-- Platform Selector Switch -->
+        
+        <!-- Support Buttons Header -->
+        <div class="hero-actions">
+            <a href="https://t.me/your_telegram" target="_blank" class="glass-btn btn-telegram">
+                <i class="fa-brands fa-telegram"></i> Telegram Support
+            </a>
+            <a href="https://wa.me/919337028344" target="_blank" class="glass-btn btn-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Support
+            </a>
+        </div>
+
+        <!-- Platform Switcher -->
         <div class="platform-switch-container">
             <button class="platform-btn active" id="btnInsta" onclick="switchPlatform('instagram')">
                 <i class="fa-brands fa-instagram"></i> Instagram
@@ -34,8 +45,8 @@
             <div class="hero-stats-grid">
                 <div class="stat-card">
                     <span class="stat-icon"><i class="fa-solid fa-rocket"></i></span>
-                    <span class="stat-num" id="totalOrders">20M+</span>
-                    <span class="stat-lbl">Delivered</span>
+                    <span class="stat-num" id="totalOrders">2,99,784</span>
+                    <span class="stat-lbl">Orders Delivered</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-icon"><i class="fa-solid fa-headset"></i></span>
@@ -45,24 +56,20 @@
                 <div class="stat-card">
                     <span class="stat-icon"><i class="fa-solid fa-shield-halved"></i></span>
                     <span class="stat-num">100%</span>
-                    <span class="stat-lbl">Safe</span>
+                    <span class="stat-lbl">Safe & Refundable</span>
                 </div>
             </div>
         </div>
 
-        <!-- Scrollable Service Category Tabs -->
+        <!-- Scrollable Category Tabs -->
         <div class="category-tabs-wrapper">
-            <div class="category-tabs" id="categoryTabs">
-                <!-- JavaScript will dynamically render categories here -->
-            </div>
+            <div class="category-tabs" id="categoryTabs"></div>
         </div>
 
         <!-- Package List Section -->
-        <div class="package-list-container" id="packageList">
-            <!-- Dynamic Service Cards Will Appear Here -->
-        </div>
+        <div class="package-list-container" id="packageList"></div>
 
-        <!-- Link & Checkout Modal / Drawer -->
+        <!-- Link & Checkout Drawer -->
         <div class="checkout-card" id="checkoutSection" style="display: none;">
             <div class="checkout-header">
                 <h3><i class="fa-solid fa-cart-shopping"></i> Complete Your Order</h3>
@@ -70,8 +77,8 @@
             <div class="order-summary-pill" id="selectedSummary"></div>
 
             <div class="input-box">
-                <label id="linkInputLabel">Enter Profile / Post Link:</label>
-                <input type="text" id="link" placeholder="https://instagram.com/username">
+                <label id="linkInputLabel">Enter Target Link / Username:</label>
+                <input type="text" id="link" placeholder="https://instagram.com/your_username">
             </div>
 
             <button class="action-btn" onclick="generateOrder()">Proceed to Payment <i class="fa-solid fa-arrow-right"></i></button>
@@ -83,21 +90,26 @@
                         <i class="fa-solid fa-qrcode"></i> UPI / QR Code
                     </button>
                     <button class="pay-tab" id="tabBinance" onclick="switchPaymentMethod('binance')">
-                        <i class="fa-solid fa-coins"></i> Crypto (USDT)
+                        <i class="fa-solid fa-coins"></i> Crypto (Binance USDT)
                     </button>
                 </div>
 
-                <!-- UPI View -->
+                <!-- UPI Payment -->
                 <div id="upiPaymentView" class="qr-box">
                     <img id="qrCodeImg" src="" alt="Payment QR Code">
                     <p class="qr-sub">Scan QR using GPay, PhonePe, Paytm, or BHIM</p>
                 </div>
 
-                <!-- Binance View -->
+                <!-- Binance Pay / USDT View -->
                 <div id="binancePaymentView" style="display: none;">
                     <div class="binance-info-card">
-                        <p class="info-row">Pay via USDT (TRC20 / BEP20)</p>
+                        <p class="info-row">Send USDT (TRC20 / BEP20)</p>
                         <span class="usdt-badge" id="binanceUsdtDisplay">$0.00 USDT</span>
+                        
+                        <div class="crypto-details-box">
+                            <p><strong>Binance Pay ID:</strong> <span id="binancePayId">248392019</span> <button onclick="copyToClipboard('248392019')" class="copy-btn"><i class="fa-regular fa-copy"></i> Copy</button></p>
+                            <p><strong>USDT Address (TRC20):</strong> <span id="usdtAddress">TX98s...Kj82P</span> <button onclick="copyToClipboard('TX98s...Kj82P')" class="copy-btn"><i class="fa-regular fa-copy"></i> Copy</button></p>
+                        </div>
                     </div>
                 </div>
 
