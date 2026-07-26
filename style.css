@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background: #060913;
+    background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.12) 0%, transparent 40%);
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 20px 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-wrapper {
+    width: 100%;
+    max-width: 440px;
+}
+
+/* Hero Header */
+.hero-header {
+    text-align: center;
+    margin-bottom: 16px;
+    padding-top: 10px;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+    color: #38bdf8;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.logo-glow {
+    font-size: 26px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 16px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.glass-btn {
+    padding: 9px 18px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+}
+
+.glass-btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-telegram { border-color: rgba(56, 189, 248, 0.4); color: #38bdf8; }
+.btn-whatsapp { border-color: rgba(34, 197, 94, 0.4); color: #4ade80; }
+
+/* 100% Quality & Refund Banner */
+.guarantee-banner {
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 16px;
+    padding: 14px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.banner-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    color: #e2e8f0;
+}
+
+.banner-item i {
+    color: #38bdf8;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+.refund-text i {
+    color: #facc15;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: rgba(18, 24, 38, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.step-badge {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #38bdf8, #a855f7);
+    color: #fff;
+    font-weight: 800;
+    font-size: 13px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f1f5f9;
+}
+
+/* Inputs & Form */
+.input-box {
+    margin-bottom: 14px;
+}
+
+.input-box label {
+    display: block;
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+select, input {
+    width: 100%;
+    padding: 13px 14px;
+    background: rgba(6, 9, 19, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 13px;
+    outline: none;
+    transition: all 0.25s;
+}
+
+select:focus, input:focus {
+    border-color: #a855f7;
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+}
+
+/* Package List Visual Cards */
+#packageList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.package-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px 14px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.package-card:hover, .package-card.selected {
+    background: rgba(168, 85, 247, 0.12);
+    border-color: #a855f7;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+}
+
+.pkg-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pkg-icon-box {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #f43f5e, #a855f7);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.pkg-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pkg-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.pkg-speed {
+    font-size: 10px;
+    color: #94a3b8;
+}
+
+.pkg-price-btn {
+    background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 13px;
+    padding: 7px 14px;
+    border-radius: 20px;
+}
+
+/* Badges */
+.badge {
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    margin-left: 4px;
+}
+
+.badge-demo { background: rgba(255, 255, 255, 0.15); color: #e2e8f0; }
+.badge-real { background: linear-gradient(90deg, #6366f1, #a855f7); color: #fff; }
+.badge-discount { background: linear-gradient(90deg, #f59e0b, #ef4444); color: #fff; }
+.badge-popular { background: linear-gradient(90deg, #3b82f6, #8b5cf6); color: #fff; }
+
+.custom-qty-card {
+    background: rgba(6, 9, 19, 0.8);
+    border: 1px solid #a855f7;
+    border-radius: 14px;
+    padding: 14px;
+}
+
+/* Buttons & Summary */
+.order-summary-pill {
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px dashed #38bdf8;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 14px;
+    text-align: center;
+    color: #38bdf8;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.action-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    color: #fff;
+    font-weight: 800;
+    font-size: 15px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.action-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+}
+
+/* Payment Section Styling */
+.pay-toggle-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.pay-tab {
+    flex: 1;
+    padding: 11px;
+    background: rgba(6, 9, 19, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pay-tab.active {
+    background: #a855f7;
+    color: #fff;
+    border-color: #a855f7;
+}
+
+.qr-box {
+    text-align: center;
+    background: rgba(6, 9, 19, 0.9);
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.qr-box img {
+    width: 190px;
+    height: 190px;
+    border-radius: 10px;
+    background: #fff;
+    padding: 6px;
+}
+
+.qr-sub {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 10px;
+}
+
+/* Binance Details Box */
+.binance-info-card {
+    background: rgba(250, 204, 21, 0.08);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.info-row {
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+.highlight-text {
+    color: #facc15;
+    font-weight: 800;
+}
+
+.usdt-badge {
+    display: inline-block;
+    background: #facc15;
+    color: #000;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.payment-alert-note {
+    font-size: 11px;
+    color: #facc15;
+    background: rgba(250, 204, 21, 0.1);
+    border-left: 3px solid #facc15;
+    padding: 8px 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+.whatsapp-submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #22c55e;
+    color: #fff;
+    font-weight: 800;
+    font-size: 15px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+    transition: transform 0.2s;
+}
+
+.whatsapp-submit-btn:hover {
+    transform: translateY(-1px);
+}
+
+.margin-top-15 { margin-top: 15px; }
+
+/* Stats Display */
+.stats-box {
+    text-align: center;
+}
+
+.stats-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #94a3b8;
+    margin-bottom: 12px;
+}
+
+.stats-grid {
+    display: flex;
+    gap: 10px;
+}
+
+.stat-pill {
+    flex: 1;
+    background: rgba(6, 9, 19, 0.8);
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-num {
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+    color: #38bdf8;
+}
+
+.stat-lbl {
+    font-size: 10px;
+    color: #64748b;
+}
+
+.footer-note {
+    text-align: center;
+    font-size: 11px;
+    color: #475569;
+    margin: 20px 0 10px 0;
+}
