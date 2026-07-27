@@ -108,21 +108,30 @@
                 <!-- UPI Payment -->
                 <div id="upiPaymentView" class="qr-box">
                     <img id="qrCodeImg" src="" alt="Payment QR Code">
-                    <p class="qr-sub">Scan QR using GPay, PhonePe, Paytm, or BHIM</p>
+                    <p class="qr-sub" style="margin-top: 10px; font-size: 13px; color: #64748b; font-weight: 600;">
+                        Scan & Pay using GPay, PhonePe, Paytm or Any UPI App
+                    </p>
                 </div>
 
                 <!-- Binance Pay / USDT View -->
                 <div id="binancePaymentView" style="display: none;">
                     <div class="binance-info-card">
-                        <p class="info-row">Send USDT (TRC20 / BEP20)</p>
-                        <span class="usdt-badge" id="binanceUsdtDisplay">$0.00 USDT</span>
-                        <div style="text-align: center; margin-bottom: 15px;">
-    <img src="binance-qr.png" alt="Binance QR Code" style="max-width: 150px; border-radius: 8px;">
+                        <p class="info-row" style="font-weight: 700; margin-bottom: 5px;">Send USDT (TRC20 / BEP20)</p>
+                        <span class="usdt-badge" id="usdtAmountDisplay" style="display: inline-block; background: #fef08a; color: #854d0e; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 14px; margin-bottom: 10px;">$0.00 USDT</span>
+                        
+                        <div style="text-align: center; margin-bottom: 10px;">
+                            <img src="binance-qr.png" alt="Binance QR Code" style="max-width: 150px; border-radius: 8px;">
+                        </div>
 
-                       
+                        <div style="background: #f8fafc; padding: 8px; border-radius: 6px; border: 1px dashed #cbd5e1; text-align: center; margin-bottom: 10px;">
+                            <small style="color: #64748b; font-size: 11px; display: block;">Binance Nickname / Pay ID:</small>
+                            <strong style="color: #0f172a; font-size: 13px;">RajSocialPanel</strong> 
+                            <button onclick="copyToClipboard('RajSocialPanel')" style="background: transparent; border: none; color: #a855f7; cursor: pointer; margin-left: 5px;"><i class="fa-regular fa-copy"></i></button>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Shared UTR Input & WhatsApp Button -->
                 <div class="input-box margin-top-15">
                     <label id="utrLabel">Enter 12-Digit UPI UTR / Ref No:</label>
                     <input type="text" id="utrNumber" placeholder="e.g. 4029XXXXXXXX (12-Digit UTR)">
