@@ -242,7 +242,6 @@ function generateOrder() {
     const payeeName = "Raj Social Panel";
     const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${totalPrice}&cu=INR`;
     
-    // Generates UPI QR
     document.getElementById("qrCodeImg").src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(upiUrl)}`;
 
     // Calculate Binance USDT Amount ($1 = 96 INR)
@@ -269,17 +268,12 @@ function switchPaymentMethod(method) {
     const utrInput = document.getElementById("utrNumber");
 
     if (method === 'upi') {
-        utrLabel.innerText = "Enter 12-Digit UPI UTR / Ref No:";
+        utrLabel.innerHTML = `<i class="fa-solid fa-receipt"></i> Enter 12-Digit UPI UTR / Ref No:`;
         utrInput.placeholder = "e.g. 4029XXXXXXXX (12-Digit UTR)";
     } else {
-        utrLabel.innerText = "Transaction ID / TxID:";
-        utrInput.placeholder = "e.g. Enter Crypto Order ID / TxID";
+        utrLabel.innerHTML = `<i class="fa-solid fa-receipt"></i> Enter Binance TxID / Order ID:`;
+        utrInput.placeholder = "e.g. 21893XXXXXXXX (Binance TxID)";
     }
-}
-
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text);
-    alert("Copied to clipboard: " + text);
 }
 
 function confirmPaymentWithUTR() {
