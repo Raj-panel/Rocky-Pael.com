@@ -242,7 +242,15 @@ function generateOrder() {
     const payeeName = "Raj Social Panel";
     const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${totalPrice}&cu=INR`;
     
+    // Generates UPI QR
     document.getElementById("qrCodeImg").src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(upiUrl)}`;
+
+    // Calculate Binance USDT Amount ($1 = 96 INR)
+    const usdtAmount = (selectedPackage.price / 96).toFixed(2);
+    const usdtDisplay = document.getElementById("usdtAmountDisplay");
+    if(usdtDisplay) {
+        usdtDisplay.innerText = `$${usdtAmount} USDT`;
+    }
 
     document.getElementById("paymentCard").style.display = "block";
     switchPaymentMethod('upi');
@@ -284,13 +292,19 @@ function confirmPaymentWithUTR() {
     }
 
     const price = Number(selectedPackage.price).toFixed(2);
+    const usdtPrice = (selectedPackage.price / 96).toFixed(2);
+
+    let amountText = `₹${price} INR`;
+    if(currentPaymentMethod === 'binance') {
+        amountText = `$${usdtPrice} USDT (₹${price} INR)`;
+    }
 
     const waMsg = `🚀 *NEW ORDER PLACED*%0A%0A` +
                   `*Platform:* ${currentPlatform.toUpperCase()}%0A` +
                   `*Category:* ${selectedPackage.category}%0A` +
                   `*Package:* ${selectedPackage.name}%0A` +
                   `*Target Link:* ${link}%0A` +
-                  `*Amount Paid:* ₹${price} INR%0A` +
+                  `*Amount Paid:* ${amountText}%0A` +
                   `*Payment Mode:* ${currentPaymentMethod.toUpperCase()}%0A` +
                   `*Transaction ID/UTR:* ${utr}%0A%0A` +
                   `Please start processing my order!`;
