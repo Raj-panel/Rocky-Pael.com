@@ -1,6 +1,6 @@
 {
-  "short_name": "Raj Smm Panel",
-  "name": "Raj Smm Panel - Premium Social Boosting Services",
+  "short_name": "SMM Panel",
+  "name": "SMM Panel Web App",
   "icons": [
     {
       "src": "icon-192.png",
@@ -13,9 +13,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/Smm-Panel.com/",
-  "scope": "/Smm-Panel.com/",
-  "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#0f172a"
+  "start_url": "./index.html",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "display": "standalone"
 }
