@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Boost Panel</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- PWA Web App Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#9b51e0">
 </head>
 <body>
 
@@ -127,6 +136,14 @@
         <div class="footer-note">
             ⚡ Fast Processing • 100% Refund Guarantee If Failed
         </div>
+
+        <!-- Floating PWA Install App Button -->
+        <div class="install-container" id="installBtnContainer">
+            <button id="installAppBtn" class="install-btn">
+                <i class="fa-solid fa-download"></i> Install App
+            </button>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
