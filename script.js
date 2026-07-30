@@ -348,3 +348,45 @@ function updateInstallButtonVisibility(isMainPlatformTab) {
    এবং ক্যাটাগরি ট্যাবে (Followers, Likes ইত্যাদি) ক্লিক করার ফাংশনে 
    updateInstallButtonVisibility(false); কল করবেন।
 */
+/* ========================================================
+   PWA INSTALL & SERVICE TAB CLICK HIDE LOGIC
+   ======================================================== */
+let deferredPrompt;
+const installBtnContainer = document.getElementById('installBtnContainer');
+const installAppBtn = document.getElementById('installAppBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (installBtnContainer) {
+        installBtnContainer.classList.remove('hidden-btn');
+    }
+});
+
+if (installAppBtn) {
+    installAppBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                installBtnContainer.classList.add('hidden-btn');
+            }
+            deferredPrompt = null;
+        } else {
+            alert('আপনার ব্রাউজারে অ্যাপ ইনস্টল অপশনটি এভেইলএবল আছে বা অ্যাপটি ইতোমধ্যে ইনস্টল করা হয়েছে।');
+        }
+    });
+}
+
+// স্ক্রিনে যেকোনো জায়গায় ক্লিক হলে ক্যাটাগরি বা সার্ভিসের ওপর ক্লিক চেক করবে
+document.addEventListener('click', function (e) {
+    // যদি ইউজার ফেসবুক বা ইনস্টাগ্রাম প্ল্যাটফর্ম ট্যাবে ক্লিক করে
+    if (e.target.closest('#btnInsta') || e.target.closest('#btnFb')) {
+        if (installBtnContainer) installBtnContainer.classList.remove('hidden-btn');
+    } 
+    // যদি ইউজার কোনো সার্ভিস ক্যাটাগরি, প্যাকেজ বা বাটনে ক্লিক করে
+    else if (e.target.closest('.category-tab') || e.target.closest('.package-card') || e.target.closest('#categoryTabs') || e.target.closest('#packageList')) {
+        if (installBtnContainer) installBtnContainer.classList.add('hidden-btn');
+    }
+});
+
