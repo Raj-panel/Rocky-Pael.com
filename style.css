@@ -461,3 +461,45 @@ body {
 .install-btn i {
     font-size: 18px;
 }
+/* Header Title Styling (Screenshot Matching) */
+.main-header-title {
+    text-align: center;
+    margin: 10px 0 15px 0;
+}
+
+.main-header-title h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #a855f7;
+    text-shadow: 0 0 12px rgba(168, 85, 247, 0.4), 2px 2px 0px #4c1d95;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+/* Fixed Install Button */
+.install-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+}
+
+.install-container.hidden-btn {
+    display: none !important;
+}
+
+.install-btn {
+    background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+    color: #ffffff;
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 210, 255, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
