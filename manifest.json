@@ -1,22 +1,21 @@
 {
-  "short_name": "RAJ Panel",
-  "name": "RAJ Social Panel",
+  "name": "Raj Social Panel",
+  "short_name": "Raj Panel",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#9b51e0",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "icon-192.png",
-      "type": "image/png",
+      "src": "https://cdn-icons-png.flaticon.com/512/870/870910.png",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
-      "src": "icon-512.png",
-      "type": "image/png",
+      "src": "https://cdn-icons-png.flaticon.com/512/870/870910.png",
       "sizes": "512x512",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
-  ],
-  "start_url": "./index.html",
-  "background_color": "#0f172a",
-  "theme_color": "#0f172a",
-  "display": "standalone"
+  ]
 }
