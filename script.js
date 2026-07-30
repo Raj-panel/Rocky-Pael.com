@@ -293,3 +293,58 @@ function confirmPaymentWithUTR() {
 
     window.open(`https://wa.me/919337028344?text=${waMsg}`, '_blank');
 }
+/* ========================================================
+   PWA INSTALL & TAB VISIBILITY LOGIC
+   ======================================================== */
+
+let deferredPrompt;
+const installBtnContainer = document.getElementById('installBtnContainer');
+const installAppBtn = document.getElementById('installAppBtn');
+
+// Chrome/Browser-এর Install Prompt ক্যাচ করা
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    // PWA সমর্থিত হলে বাটন দেখাবে
+    if (installBtnContainer) {
+        installBtnContainer.style.display = 'block';
+    }
+});
+
+// Install App বাটনে ক্লিক করলে আসল ইন্সটল পপআপ দেখানো
+if (installAppBtn) {
+    installAppBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                console.log('User installed the PWA');
+            }
+            deferredPrompt = null;
+            installBtnContainer.style.display = 'none';
+        } else {
+            alert('App installation is not available or already installed on your browser/device.');
+        }
+    });
+}
+
+// ক্যাটাগরি বা সার্ভিসে ক্লিক করলে Install বাটন হাইড করার ফাংশন
+function updateInstallButtonVisibility(isMainPlatformTab) {
+    if (!installBtnContainer) return;
+    
+    if (isMainPlatformTab) {
+        // প্ল্যাটফর্ম (Instagram / Facebook) সিলেক্ট থাকলে দেখাবে
+        installBtnContainer.style.display = 'block';
+    } else {
+        // ফলোয়ার্স বা অন্য কোনো সার্ভিসে ক্লিক করলে লুকাবে
+        installBtnContainer.style.display = 'none';
+    }
+}
+
+/* 
+   বিঃদ্রঃ আপনার বিদ্যমান switchPlatform() ফাংশনের ভেতর 
+   updateInstallButtonVisibility(true); কল করবেন। 
+   
+   এবং ক্যাটাগরি ট্যাবে (Followers, Likes ইত্যাদি) ক্লিক করার ফাংশনে 
+   updateInstallButtonVisibility(false); কল করবেন।
+*/
