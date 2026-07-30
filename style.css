@@ -23,6 +23,49 @@ body {
     max-width: 440px;
 }
 
+/* Big Header Title */
+.main-header-title {
+    text-align: center;
+    margin: 10px 0 15px 0;
+}
+
+.main-header-title h1 {
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #d946ef 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Install App Button */
+.install-app-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #ffffff;
+    color: #d946ef;
+    font-weight: 800;
+    font-size: 14px;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 14px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.install-app-btn:hover {
+    background: #fdf4ff;
+    transform: translateY(-2px);
+}
+
+.install-app-btn.hidden-btn {
+    display: none !important;
+}
+
 /* Support Header */
 .hero-actions {
     display: flex;
