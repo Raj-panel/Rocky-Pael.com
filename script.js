@@ -80,10 +80,47 @@ let currentPlatform = 'instagram';
 let currentCategory = '';
 let selectedPackage = null;
 let currentPaymentMethod = 'upi';
+let deferredPrompt;
+
+// PWA Install Prompt Capture
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+});
 
 window.onload = function() {
     switchPlatform('instagram');
+    
+    // Install App button click handler
+    const installBtn = document.getElementById('installAppBtn');
+    if (installBtn) {
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    console.log('User accepted the install prompt');
+                }
+                deferredPrompt = null;
+            } else {
+                alert('App is ready to install or already installed on your device!');
+            }
+        });
+    }
 };
+
+// Check & Update Install Button Visibility
+function updateInstallButtonVisibility() {
+    const installBtn = document.getElementById('installAppBtn');
+    if (!installBtn) return;
+
+    // Rule: Show ONLY when Instagram -> Followers Non-Drop is selected. Hide for everything else.
+    if (currentPlatform === 'instagram' && currentCategory === 'Followers Non-Drop') {
+        installBtn.classList.remove('hidden-btn');
+    } else {
+        installBtn.classList.add('hidden-btn');
+    }
+}
 
 function switchPlatform(platform) {
     currentPlatform = platform;
@@ -129,11 +166,13 @@ function renderCategoryTabs() {
             document.querySelectorAll(".cat-tab").forEach(t => t.classList.remove("active"));
             tabBtn.classList.add("active");
             currentCategory = cat;
+            updateInstallButtonVisibility();
             renderPackages();
         };
         tabsContainer.appendChild(tabBtn);
     });
 
+    updateInstallButtonVisibility();
     renderPackages();
 }
 
