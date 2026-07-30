@@ -305,3 +305,48 @@ function confirmPaymentWithUTR() {
 
     window.open(`https://wa.me/919337028344?text=${waMsg}`, '_blank');
 }
+let deferredPrompt;
+const installContainer = document.getElementById('installAppContainer');
+
+// Listen for PWA Install Prompt
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (installContainer) {
+        installContainer.classList.remove('hide-install-btn');
+    }
+});
+
+// Function to trigger App Installation
+function triggerPwaInstall() {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted the install prompt');
+            }
+            deferredPrompt = null;
+        });
+    } else {
+        alert('Browser install prompt is ready or already installed! You can also click 3-dots in Chrome & select "Add to Home screen".');
+    }
+}
+
+// Logic: Hide Install Button when Service/Category is Selected
+function hideInstallBtnOnServiceSelect() {
+    if (installContainer) {
+        installContainer.classList.add('hide-install-btn');
+    }
+}
+
+// Logic: Show Install Button when Switching Platforms (Instagram/Facebook)
+function showInstallBtnOnPlatformSwitch() {
+    if (installContainer) {
+        installContainer.classList.remove('hide-install-btn');
+    }
+}
+
+// IMPORTANT: 
+// 1. আপনার ক্যাটাগরি বা সার্ভিসে ক্লিক করার যে ফাংশন রয়েছে (যেমন: selectCategory বা selectPackage), 
+// তার ভেতরে hideInstallBtnOnServiceSelect(); এই লাইনটি কল করে দিবেন।
+// 2. আপনার switchPlatform() ফাংশন যেখানে আছে, তার ভেতরে showInstallBtnOnPlatformSwitch(); যোগ করে দিবেন।
