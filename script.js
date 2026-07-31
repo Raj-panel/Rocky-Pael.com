@@ -54,7 +54,7 @@ const serviceData = {
         ]
     },
     facebook: {
-        "Followers non drop": [
+        "Followers Non-Drop": [
             { type: "custom", name: "Facebook Followers", pricePer1000: 49 }
         ],
         "Likes Non-Drop": [
