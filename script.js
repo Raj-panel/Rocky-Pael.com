@@ -3,7 +3,7 @@ const serviceData = {
         "Followers Non-Drop": [
             { type: "custom", name: "Instagram Non-Drop Followers", pricePer1000: 80 }
         ],
-        "Followers": [
+        "Followers 20%+ EXTRA": [
             { name: "1K Followers", price: 50, badge: "Starter", badgeClass: "badge-demo" },
             { name: "2K Followers", price: 90 },
             { name: "3K Followers", price: 129, badge: "⭐ Popular", badgeClass: "badge-popular" },
@@ -54,7 +54,7 @@ const serviceData = {
         ]
     },
     facebook: {
-        "Facebook Followers": [
+        "Followers non drop": [
             { type: "custom", name: "Facebook Followers", pricePer1000: 49 }
         ],
         "Likes Non-Drop": [
@@ -99,26 +99,26 @@ window.onload = function() {
                 deferredPrompt.prompt();
                 const { outcome } = await deferredPrompt.userChoice;
                 if (outcome === 'accepted') {
-                    console.log('User accepted the install prompt');
+                    console.log('User accepted install prompt');
                 }
                 deferredPrompt = null;
             } else {
-                alert('App is ready to install or already installed on your device!');
+                alert('App is ready to install or already installed!');
             }
         });
     }
 };
 
-// Check & Update Install Button Visibility
+// Controls Bottom Install Button Visibility
 function updateInstallButtonVisibility() {
-    const installBtn = document.getElementById('installAppBtn');
-    if (!installBtn) return;
+    const bottomContainer = document.getElementById('bottomInstallContainer');
+    if (!bottomContainer) return;
 
-    // Rule: Show ONLY when Instagram -> Followers Non-Drop is selected. Hide for everything else.
+    // RULE: Show ONLY when Instagram -> Followers Non-Drop is selected
     if (currentPlatform === 'instagram' && currentCategory === 'Followers Non-Drop') {
-        installBtn.classList.remove('hidden-btn');
+        bottomContainer.classList.remove('hidden-btn');
     } else {
-        installBtn.classList.add('hidden-btn');
+        bottomContainer.classList.add('hidden-btn');
     }
 }
 
@@ -283,7 +283,6 @@ function generateOrder() {
     
     document.getElementById("qrCodeImg").src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(upiUrl)}`;
 
-    // Calculate Binance USDT Amount ($1 = 96 INR)
     const usdtAmount = (selectedPackage.price / 96).toFixed(2);
     const usdtDisplay = document.getElementById("usdtAmountDisplay");
     if(usdtDisplay) {
