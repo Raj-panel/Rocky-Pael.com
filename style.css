@@ -14,6 +14,7 @@ body {
     color: #1e293b;
     min-height: 100vh;
     padding: 12px;
+    padding-bottom: 90px; /* Space for bottom fixed button */
     display: flex;
     justify-content: center;
 }
@@ -39,30 +40,43 @@ body {
     text-transform: uppercase;
 }
 
-/* Install App Button */
-.install-app-btn {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    background: #ffffff;
-    color: #d946ef;
+/* BOTTOM FIXED INSTALL APP BUTTON (Matches Right Side Picture) */
+.bottom-install-wrapper {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 0 16px;
+    pointer-events: none;
+}
+
+.bottom-install-btn {
+    pointer-events: auto;
+    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+    color: #ffffff;
     font-weight: 800;
-    font-size: 14px;
-    border: 2px solid #ffffff;
-    border-radius: 12px;
+    font-size: 15px;
+    padding: 12px 36px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
     cursor: pointer;
-    margin-bottom: 14px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
     transition: all 0.3s ease;
 }
 
-.install-app-btn:hover {
-    background: #fdf4ff;
+.bottom-install-btn:hover {
     transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.6);
 }
 
-.install-app-btn.hidden-btn {
+.hidden-btn {
     display: none !important;
 }
 
@@ -390,52 +404,6 @@ input:focus { border-color: #d946ef; background: #ffffff; }
 }
 
 .qr-sub { font-size: 10px; color: #64748b; margin-top: 6px; }
-
-/* Binance Box */
-.binance-info-card {
-    background: #fefce8;
-    border: 1px solid #fef08a;
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.usdt-badge {
-    display: inline-block;
-    background: #eab308;
-    color: #fff;
-    font-weight: 800;
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 12px;
-    margin-top: 4px;
-}
-
-.crypto-details-box {
-    margin-top: 10px;
-    font-size: 11px;
-    text-align: left;
-    background: #fff;
-    padding: 8px 10px;
-    border-radius: 8px;
-    border: 1px solid #fef08a;
-}
-
-.crypto-details-box p {
-    margin-bottom: 6px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.copy-btn {
-    background: #e2e8f0;
-    border: none;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 10px;
-    cursor: pointer;
-}
 
 .whatsapp-submit-btn {
     width: 100%;
