@@ -1,184 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raj Social Panel</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- FontAwesome / Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
+// Global State Variables
+let selectedPlatform = 'instagram'; // Default
+let selectedService = 'Followers Non-Drop';
+let selectedQuantity = 0;
+let calculatedPrice = 0;
 
-  <!-- ================= HOME PAGE SECTION ================= -->
-  <div id="homePage" class="page-section active">
-    
-    <!-- Header -->
-    <header class="main-header">
-      <div class="logo">RAJ SOCIAL PANEL</div>
-      <div class="support-buttons">
-        <a href="#" class="support-btn telegram"><i class="fab fa-telegram"></i> Telegram</a>
-        <a href="#" class="support-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      </div>
-    </header>
+// Rate Configuration (Per 1000)
+const RATE_PER_1000 = {
+  instagram: 180, // ₹180 per 1000
+  facebook: 200   // ₹200 per 1000
+};
 
-    <!-- Banner / Hero Section -->
-    <section class="hero-section">
-      <h1>Grow Your Social Presence</h1>
-      <p>Fast, Reliable & Non-Drop SMM Services</p>
-    </section>
+// WhatsApp Admin Phone Number (E.g., 919876543210)
+const WHATSAPP_NUMBER = "919397028344";
 
-    <!-- Tabs Container -->
-    <div class="tabs-container">
-      <button class="tab-btn active" id="tabInstagram" onclick="selectPlatform('instagram')">
-        <i class="fab fa-instagram"></i> Instagram
-      </button>
-      <button class="tab-btn" id="tabFacebook" onclick="selectPlatform('facebook')">
-        <i class="fab fa-facebook"></i> Facebook
-      </button>
-    </div>
+// Page Load Handling
+document.addEventListener("DOMContentLoaded", () => {
+  selectPlatform('instagram'); // Default selection rule
+});
 
-    <!-- Category Selector (Auto Selects Non-Drop) -->
-    <div class="category-container">
-      <select id="categorySelect" onchange="onCategoryChange()">
-        <option value="followers_nondrop" selected>Followers Non-Drop</option>
-        <option value="likes">Likes</option>
-        <option value="views">Views</option>
-      </select>
-    </div>
+// Switch Platform Tabs
+function selectPlatform(platform) {
+  selectedPlatform = platform;
+  
+  document.getElementById('tabInstagram').classList.toggle('active', platform === 'instagram');
+  document.getElementById('tabFacebook').classList.toggle('active', platform === 'facebook');
 
-    <!-- Custom Quantity Input Box -->
-    <div class="custom-quantity-card" id="quantitySection">
-      <h3>Enter Custom Quantity</h3>
-      <input type="number" id="customQuantity" placeholder="e.g. 100, 500, 1000, 5000" oninput="handleQuantityInput()">
-      
-      <!-- Dynamically shown when user types custom quantity -->
-      <button id="proceedPaymentBtn" class="premium-btn hidden" onclick="goToPaymentFromCustom()">
-        Proceed To Payment <i class="fas fa-arrow-right"></i>
-      </button>
-    </div>
+  // Reset category selection to Non-Drop
+  document.getElementById('categorySelect').value = 'followers_nondrop';
+  
+  // Clear Quantity
+  document.getElementById('customQuantity').value = '';
+  handleQuantityInput();
+}
 
-    <!-- Ready-Made Service Cards (Hidden when typing quantity) -->
-    <div class="service-cards-grid" id="readyMadeServices">
-      <div class="service-card" onclick="selectReadyMadeService(200)">
-        <h4>200 Followers</h4>
-        <p class="price">₹50</p>
-        <span class="badge">Non-Drop</span>
-      </div>
-      <div class="service-card" onclick="selectReadyMadeService(1000)">
-        <h4>1K Followers</h4>
-        <p class="price">₹180</p>
-        <span class="badge">Popular</span>
-      </div>
-      <div class="service-card" onclick="selectReadyMadeService(2000)">
-        <h4>2K Followers</h4>
-        <p class="price">₹350</p>
-        <span class="badge">Best Value</span>
-      </div>
-      <div class="service-card" onclick="selectReadyMadeService(3000)">
-        <h4>3K Followers</h4>
-        <p class="price">₹500</p>
-        <span class="badge">Non-Drop</span>
-      </div>
-      <div class="service-card" onclick="selectReadyMadeService(4000)">
-        <h4>4K Followers</h4>
-        <p class="price">₹650</p>
-        <span class="badge">Non-Drop</span>
-      </div>
-    </div>
+function onCategoryChange() {
+  // Can be expanded if other categories are added later
+}
 
-  </div>
+// Custom Quantity Handling
+function handleQuantityInput() {
+  const qtyInput = document.getElementById('customQuantity').value;
+  const readyMadeBox = document.getElementById('readyMadeServices');
+  const proceedBtn = document.getElementById('proceedPaymentBtn');
 
-  <!-- ================= PAYMENT PAGE SECTION (FULL SCREEN) ================= -->
-  <div id="paymentPage" class="page-section payment-screen">
-    
-    <!-- Top Nav / Back Button -->
-    <div class="payment-header">
-      <button class="back-btn" onclick="goBackToHome()"><i class="fas fa-arrow-left"></i> Back</button>
-      <h2>Complete Your Order</h2>
-    </div>
+  if (qtyInput && parseInt(qtyInput) > 0) {
+    selectedQuantity = parseInt(qtyInput);
+    readyMadeBox.classList.add('hidden'); // Hide cards when user types
+    proceedBtn.classList.remove('hidden'); // Show Proceed button
+  } else {
+    selectedQuantity = 0;
+    readyMadeBox.classList.remove('hidden'); // Show cards when input is empty
+    proceedBtn.classList.add('hidden');
+  }
+}
 
-    <!-- 1. Top Order Summary Banner -->
-    <div class="glass-card order-top-card">
-      <div class="order-info">
-        <span id="summaryPlatform" class="platform-tag">Instagram</span>
-        <h3 id="summaryService">Followers Non-Drop</h3>
-        <p class="qty-text">Quantity: <strong id="summaryQty">1000</strong></p>
-      </div>
-      <div class="order-price">
-        <span>Total Price</span>
-        <h2 id="summaryTotalPrice">₹180</h2>
-      </div>
-    </div>
+// Calculate Price Dynamically
+function calculatePrice(qty) {
+  const rate = RATE_PER_1000[selectedPlatform] || 180;
+  return Math.round((qty / 1000) * rate);
+}
 
-    <!-- 2. Profile Link Input -->
-    <div class="glass-card input-group-card">
-      <label for="profileLink" id="profileLinkLabel">Enter Your Instagram Profile Link</label>
-      <input type="url" id="profileLink" class="glass-input" placeholder="https://..." required>
-    </div>
+// Triggered by Ready-Made Service Cards Click
+function selectReadyMadeService(qty) {
+  selectedQuantity = qty;
+  openPaymentPage();
+}
 
-    <!-- 3. Detailed Order Summary -->
-    <div class="glass-card summary-details-card">
-      <h3>Order Breakdown</h3>
-      <div class="summary-row"><span>Platform:</span> <strong id="breakdownPlatform">Instagram</strong></div>
-      <div class="summary-row"><span>Service:</span> <strong>Followers Non-Drop</strong></div>
-      <div class="summary-row"><span>Quantity:</span> <strong id="breakdownQty">1000</strong></div>
-      <div class="summary-row"><span>Price:</span> <strong id="breakdownPrice">₹180</strong></div>
-      <hr>
-      <div class="summary-row total-row"><span>You Pay:</span> <strong id="breakdownTotalPay">₹180</strong></div>
-    </div>
+// Triggered by Proceed To Payment Button
+function goToPaymentFromCustom() {
+  if (selectedQuantity <= 0) {
+    alert("Please enter a valid quantity.");
+    return;
+  }
+  openPaymentPage();
+}
 
-    <!-- 4. Payment Options -->
-    <div class="glass-card payment-options-card">
-      <h3>Select Payment Method</h3>
-      <div class="method-selector">
-        <label class="method-btn active" id="methodUpi" onclick="switchPaymentMethod('upi')">
-          <input type="radio" name="payment_method" value="UPI" checked> UPI / QR Code
-        </label>
-        <label class="method-btn" id="methodBinance" onclick="switchPaymentMethod('binance')">
-          <input type="radio" name="payment_method" value="Binance"> Binance Pay
-        </label>
-      </div>
+// Open Full-Screen Payment Page
+function openPaymentPage() {
+  calculatedPrice = calculatePrice(selectedQuantity);
 
-      <!-- UPI Payment View -->
-      <div id="upiPaymentView" class="payment-view">
-        <div class="qr-container">
-          <img id="upiQrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=yourupi@id&pn=RajSocialPanel" alt="UPI QR Code">
-          <p>Scan & Pay via any UPI App</p>
-        </div>
-        <div class="payment-apps">
-          <span>Paytm</span>
-          <span>Google Pay</span>
-          <span>PhonePe</span>
-          <span>Other UPI</span>
-        </div>
-      </div>
+  // Populate Payment Page UI
+  const platformCapitalized = selectedPlatform.charAt(0).toUpperCase() + selectedPlatform.slice(1);
+  
+  document.getElementById('summaryPlatform').innerText = platformCapitalized;
+  document.getElementById('summaryQty').innerText = selectedQuantity + " Followers";
+  document.getElementById('summaryTotalPrice').innerText = "₹" + calculatedPrice;
 
-      <!-- Binance Payment View -->
-      <div id="binancePaymentView" class="payment-view hidden">
-        <div class="binance-box">
-          <p>Binance Pay ID: <strong>123456789</strong></p>
-          <p>Payable USDT equivalent to INR Price.</p>
-        </div>
-      </div>
+  document.getElementById('profileLinkLabel').innerText = `Enter Your ${platformCapitalized} Profile Link`;
+  document.getElementById('profileLink').placeholder = `https://www.${selectedPlatform}.com/yourprofile`;
 
-      <!-- Transaction ID Input -->
-      <div class="tx-input-card">
-        <label for="transactionId">Enter Transaction ID / UTR</label>
-        <input type="text" id="transactionId" class="glass-input" placeholder="e.g. 312345678901" required>
-      </div>
-    </div>
+  document.getElementById('breakdownPlatform').innerText = platformCapitalized;
+  document.getElementById('breakdownQty').innerText = selectedQuantity;
+  document.getElementById('breakdownPrice').innerText = "₹" + calculatedPrice;
+  document.getElementById('breakdownTotalPay').innerText = "₹" + calculatedPrice;
 
-    <!-- 5. Submit Button -->
-    <div class="submit-container">
-      <button class="premium-btn submit-btn" onclick="submitOrderToWhatsApp()">
-        <i class="fab fa-whatsapp"></i> Submit Order
-      </button>
-    </div>
+  // View Switching
+  document.getElementById('homePage').classList.remove('active');
+  document.getElementById('paymentPage').classList.add('active');
+  window.scrollTo(0, 0);
+}
 
-  </div>
+// Back to Home
+function goBackToHome() {
+  document.getElementById('paymentPage').classList.remove('active');
+  document.getElementById('homePage').classList.add('active');
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
-    
+// Payment Method Switcher
+function switchPaymentMethod(method) {
+  const upiView = document.getElementById('upiPaymentView');
+  const binanceView = document.getElementById('binancePaymentView');
+
+  document.getElementById('methodUpi').classList.toggle('active', method === 'upi');
+  document.getElementById('methodBinance').classList.toggle('active', method === 'binance');
+
+  if (method === 'upi') {
+    upiView.classList.remove('hidden');
+    binanceView.classList.add('hidden');
+  } else {
+    upiView.classList.add('hidden');
+    binanceView.classList.remove('hidden');
+  }
+}
+
+// WhatsApp Payload Generator & Submit Order
+function submitOrderToWhatsApp() {
+  const profileLink = document.getElementById('profileLink').value.trim();
+  const txId = document.getElementById('transactionId').value.trim();
+  const activeMethod = document.querySelector('input[name="payment_method"]:checked').value;
+
+  if (!profileLink) {
+    alert("Please enter your Profile Link!");
+    return;
+  }
+
+  if (!txId) {
+    alert("Please enter the Transaction ID / UTR!");
+    return;
+  }
+
+  const platformCapitalized = selectedPlatform.charAt(0).toUpperCase() + selectedPlatform.slice(1);
+
+  // Generate Message Payload
+  const message = `🚨 *NEW ORDER PLACED* 🚨\n\n` +
+    `*Platform:* ${platformCapitalized}\n` +
+    `*Category:* ${selectedService}\n` +
+    `*Package:* ${selectedQuantity} Non-Drop Followers\n` +
+    `*Target Link:* ${profileLink}\n` +
+    `*Amount Paid:* ₹${calculatedPrice}\n` +
+    `*Payment Mode:* ${activeMethod}\n` +
+    `*Transaction ID/UTR:* ${txId}\n\n` +
+    `Please start processing my order!`;
+
+  const encodedMsg = encodeURIComponent(message);
+  const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
+
+  window.open(waUrl, '_blank');
+}
