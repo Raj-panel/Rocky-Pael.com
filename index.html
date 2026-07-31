@@ -16,24 +16,15 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Open Graph / Facebook / Messenger Meta Tags -->
+    <!-- Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://raj-panel.github.io/Smm-Panel.com/">
     <meta property="og:title" content="Raj Social Panel - Premium Social Boosting Services">
     <meta property="og:description" content="Get instant Followers, Likes, Views for Instagram and Facebook at lowest prices!">
-    
-    <!-- Social Banner Image & Cache Optimization -->
     <meta property="og:image" content="https://raj-panel.github.io/Smm-Panel.com/banner.png?v=2.0">
-    <meta property="og:image:secure_url" content="https://raj-panel.github.io/Smm-Panel.com/banner.png?v=2.0">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
 
-    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://raj-panel.github.io/Smm-Panel.com/">
     <meta name="twitter:title" content="Raj Social Panel - Premium Social Boosting Services">
-    <meta name="twitter:description" content="Instant Delivery & Premium Quality Social Media Services.">
     <meta name="twitter:image" content="https://raj-panel.github.io/Smm-Panel.com/banner.png?v=2.0">
 </head>
 <body>
@@ -75,11 +66,6 @@
             </div>
             <h2 id="heroTitle">Instagram Boost</h2>
             <p class="hero-sub">Real engagement delivered fast & safely</p>
-
-            <!-- Install App Button Below Hero Section -->
-            <button id="installAppBtn" class="install-app-btn">
-                <i class="fa-solid fa-download"></i> Install App
-            </button>
 
             <div class="hero-stats-grid">
                 <div class="stat-card">
@@ -153,12 +139,10 @@
                         <img src="binance-qr.png" alt="Binance QR Code" style="max-width: 140px; border-radius: 4px;">
                     </div>
 
-                    <!-- Binance Nickname Row -->
                     <div style="border: 1px solid #334155; background: rgba(15, 23, 42, 0.6); padding: 8px 12px; border-radius: 8px; margin-bottom: 12px; font-size: 13px; color: #cbd5e1;">
                         Binance Nickname: <strong style="color: #facc15;">Alex-Sahil786</strong>
                     </div>
 
-                    <!-- Dynamic Dollar Badge -->
                     <div style="margin-bottom: 8px;">
                         <span id="usdtAmountDisplay" style="background: #facc15; color: #000; font-weight: 800; padding: 4px 16px; border-radius: 20px; font-size: 14px; display: inline-block;">$0.00 USDT</span>
                     </div>
@@ -193,9 +177,16 @@
         </div>
     </div>
 
+    <!-- Bottom Fixed Install App Button (Right side picture style) -->
+    <div id="bottomInstallContainer" class="bottom-install-wrapper">
+        <button id="installAppBtn" class="bottom-install-btn">
+            <i class="fa-solid fa-download"></i> Install App
+        </button>
+    </div>
+
     <script src="script.js"></script>
 
-    <!-- Service Worker Registration for PWA -->
+    <!-- Service Worker Registration -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
