@@ -1,6 +1,6 @@
 const serviceData = {
     instagram: {
-        "Followers Non-Drop": [
+        "🇮🇳Followers Non-Drop": [
             { type: "custom", name: "Instagram Non-Drop Followers", pricePer1000: 80 }
         ],
         "Followers 20%+ EXTRA": [
