@@ -3,7 +3,7 @@ const serviceData = {
         "Followers Non-Drop": [
             { type: "custom", name: "Instagram Non-Drop Followers", pricePer1000: 80 }
         ],
-        "Followers 20%+ EXTRA": [
+        "Followers 23%+ EXTRA": [
             { name: "200 Followers", price: 20, badge: "DEMO", badgeclass: "badge-demo" }, 
             { name: "1K Followers", price: 50, badge: "Starter", badgeClass: "badge-demo" },
             { name: "2K Followers", price: 90 },
